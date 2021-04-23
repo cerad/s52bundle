@@ -5,8 +5,22 @@
         https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <defaults public="false" />
-        <service id="MyBundle\Controller\SecurityController" autowire="true">
+ 
+        <service id="my-bundle.controller_services" class="Symfony\Component\DependencyInjection\ServiceLocator">
+            <argument type="collection">
+                <argument type="service" id="twig"/>
+                <argument type="service" id="router"/>
+                <argument type="service" id="form.factory"/>
+            </argument>
+            <tag name="container.service_locator" />
+        </service>
+
+        <service id="MyBundle\Controller\SecurityController">
+            <call method="setContainer">
+                <argument type="service" id="my-bundle.controller_services"/>
+            </call>
             <tag name="controller.service_arguments" />
         </service>
+
     </services>
 </container>
