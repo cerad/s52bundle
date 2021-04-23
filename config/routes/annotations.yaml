@@ -1,3 +1,7 @@
+controllers-my-bundle:
+    resource: ../../src-my-bundle/Controller/
+    type: annotation
+
 controllers:
     resource: ../../src/Controller/
     type: annotation
