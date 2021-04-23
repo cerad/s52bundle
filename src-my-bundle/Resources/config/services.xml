@@ -22,5 +22,6 @@
             <tag name="controller.service_arguments" />
         </service>
 
+        <service id="MyBundle\Service\SomeService" autowire="true" />
     </services>
 </container>

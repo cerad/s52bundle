@@ -2,6 +2,7 @@
 
 namespace MyBundle\Controller;
 
+use MyBundle\Service\SomeService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SecurityController extends AbstractController
 {
     #[Route('/security', name: 'security')]
-    public function index(): Response
+    public function index(SomeService $someService): Response
     {
         // Will blow up if the locator is not injected
         $url = $this->generateUrl('home');
